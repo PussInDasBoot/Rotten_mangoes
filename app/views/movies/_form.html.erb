@@ -9,7 +9,7 @@
   </div>
   <div>
     <%= f.label "runtime_in_minutes" %><br>
-    <%= f.text_field "runtime_in_minutes" %>
+    <%= f.number_field "runtime_in_minutes" %>
   </div>
   <div>
     <%= f.label "description" %><br>
@@ -21,7 +21,7 @@
   </div>
   <div>
     <%= f.label "release_date" %><br>
-    <%= f.text_field "release_date" %>
+    <%= f.date_field "release_date" %>
   </div>
   <div>
     <%=f.submit "Submit" %>
