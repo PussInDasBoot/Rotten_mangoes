@@ -1,13 +1,15 @@
 <h1>Rotten Mangoes</h1>
 
 <% @movies.each do |movie| %>
+  <figure>
   <%= link_to image_tag(movie.poster_url), movie_path(movie) %>
+  </figure>
   <h2><%= movie.title %></h2>
   <h3><%= movie.director %> </h3>
   <h4><%= formatted_date(movie.release_date) %> </h4>
   <h4>Length: <%= movie.runtime_in_minutes %> minutes </h4>
   <p><%= movie.description %></p>
-  <% end %>
+<% end %>
 
   <%= link_to "Add a new movie", new_movie_path %>
 
