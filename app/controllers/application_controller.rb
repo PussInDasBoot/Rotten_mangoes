@@ -22,4 +22,5 @@ class ApplicationController < ActionController::Base
     end
 
     helper_method :current_user
+    # Means this is available in the view classes too
 end

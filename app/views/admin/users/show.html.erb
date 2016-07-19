@@ -1,0 +1,7 @@
+<h1><%=@user.full_name %></h1>
+<ul>
+  <li><%=@user.email %> </li>
+  <li>Admin: <%= @user.admin ? "Yes" : "No" %> </li>
+</ul>
+
+<%= link_to "Back to all users", admin_users_path %>
