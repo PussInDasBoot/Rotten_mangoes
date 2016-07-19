@@ -1,0 +1,14 @@
+<h1>Log in</h1>
+
+<%=form_tag sessions_path do %>
+<!-- sessions_path refers to route prefix session_index which has the controller#action of session#create -->
+  <div>
+    <%= label_tag :email %> <br>
+    <%= text_field_tag :email %>
+  </div>
+  <div>
+    <%= label_tag :password %> <br>
+    <%= password_field_tag :password %>
+  </div>
+  <div><%= submit_tag "Log in" %> </div>
+<% end %>
