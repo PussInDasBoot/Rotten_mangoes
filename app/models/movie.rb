@@ -9,6 +9,11 @@ class Movie < ApplicationRecord
   validates :release_date, presence: true
   validate :release_date_is_in_the_past
 
+  def review_average
+    return 0 if reviews.count == 0
+      reviews.sum(:rating_out_of_ten)/reviews.count
+  end
+
   protected
   def release_date_is_in_the_past
     if release_date.present?
