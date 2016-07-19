@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      redirect_to movies_path
+      redirect_to movies_path, notice: "#{@user.email} was signed-up successfully"
     else
       render :new
     end
