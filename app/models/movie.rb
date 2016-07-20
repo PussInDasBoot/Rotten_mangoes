@@ -15,6 +15,7 @@ class Movie < ApplicationRecord
       reviews.sum(:rating_out_of_ten)/reviews.count
   end
 
+
   protected
   def release_date_is_in_the_past
     if release_date.present?
