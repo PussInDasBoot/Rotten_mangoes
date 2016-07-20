@@ -7,15 +7,13 @@ class ApplicationController < ActionController::Base
       if !current_user
         flash[:alert] = "You must log in"
         redirect_to new_session_path
+
+      elsif current_user.admin != true
+        flash[:alert] = "You must be admin to see this page"
+        redirect_to root_url
       end
     end
 
-    def admin_access
-      unless current_user.admin
-        flash[:alert] = "You must be admin to see this page"
-        redirect_to movies_path
-      end
-    end
 
     def current_user
       @current_user ||= User.find(session[:user_id]) if session[:user_id]
