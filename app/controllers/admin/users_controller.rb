@@ -10,8 +10,22 @@ class Admin::UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def new
+    @user = User.new
+  end
+
   def edit
     @user = User.find(params[:id])
+  end
+
+  def create
+    @user = User.new(user_params)
+
+    if @user.save
+      redirect_to admin_users_url, notice: "#{@user.email} was added successfully"
+    else
+      render :new
+    end
   end
 
   def update
@@ -22,7 +36,6 @@ class Admin::UsersController < ApplicationController
       render 'edit'
     end
   end
-
 
   protected
   def user_params

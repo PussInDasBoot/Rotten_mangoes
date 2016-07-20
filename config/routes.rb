@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   root to: 'movies#index'
 
   namespace :admin do
-    resources :users, except: [:new, :create]
+    resources :users
   end 
 
 end
