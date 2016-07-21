@@ -1,7 +1,18 @@
-<h1><%=@user.full_name %></h1>
-<ul>
-  <li><%=@user.email %> </li>
-  <li>Admin: <%= @user.admin ? "Yes" : "No" %> </li>
-</ul>
+<div class="form-width">
+  <h1><%=@user.full_name %></h1>
 
-<%= link_to "Back to all users", admin_users_path %>
+  <table class="table top-buffer">
+    <thead class="thead">
+      <tr>
+        <td>Email</td>
+        <td>Admin?</td>
+      </tr>
+    </thead>
+    <tr>
+      <td><%=@user.email %> </td>
+      <td><%= @user.admin ? "Yes" : "No" %> </td>
+    </tr>
+  </table>
+
+  <%= link_to "Back to all users", admin_users_path %>
+</div>

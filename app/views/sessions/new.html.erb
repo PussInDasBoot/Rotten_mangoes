@@ -1,15 +1,16 @@
-<h1>Log in</h1>
+<h1 class="text-center">Log in</h1>
+<div class="form-group form-width text-center">
+  <%=form_tag session_path do %>
+  <!-- sessions_path refers to route prefix session_index which has the controller#action of session#create -->
 
-<%=form_tag sessions_path do %>
-<!-- sessions_path refers to route prefix session_index which has the controller#action of session#create -->
-
-  <div>
-    <%= label_tag :email %> <br>
-    <%= text_field_tag :email %>
-  </div>
-  <div>
-    <%= label_tag :password %> <br>
-    <%= password_field_tag :password %>
-  </div>
-  <div><%= submit_tag "Log in" %> </div>
-<% end %>
+    <div>
+      <%= label_tag :email %> <br>
+      <%= text_field_tag :email, nil, class: 'form-control' %>
+    </div><br>
+    <div>
+      <%= label_tag :password %> <br>
+      <%= password_field_tag :password, nil, class: 'form-control' %>
+    </div>
+    <div><%= submit_tag "Log in", name:nil, class: 'btn btn-primary top-buffer' %> </div>
+  <% end %>
+</div>

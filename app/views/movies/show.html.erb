@@ -1,14 +1,15 @@
+<div class="container text-center">
 <h1><%= @movie.title %></h1>
 <figure>
-<%= image_tag @movie.poster.resize.url if @movie.poster? %>
+<%= image_tag @movie.poster.resize.url, class: 'img-rounded image-height' if @movie.poster? %>
 </figure>
 <%=render partial: "movie", locals: {movie: @movie} %>
 
-<%=link_to "Edit", edit_movie_path %><br>
+<%=link_to "Edit", edit_movie_path, class: 'btn btn-primary' %><br>
 
-<%=link_to "Back to all movies", movies_path %>
+<%=link_to "Back to all movies", movies_path, class: 'btn btn-primary top-buffer' %>
 
-<h3>Review for <%=@movie.title%> </h3>
+<h3>Reviews for <%=@movie.title%> </h3>
 <% if current_user %>
   <% @movie.reviews.each do |review| %>
     <p><%= review.text %></p>
@@ -20,3 +21,4 @@
     <p>Please <%=link_to "Log in", new_session_path %> to see and submit reviews </p>
   <% end %>
 <p>Review average: <%=@movie.review_average %> </p>
+</div>

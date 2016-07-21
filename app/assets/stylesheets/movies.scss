@@ -1,3 +1,18 @@
 // Place all the styles related to the Movies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.top-buffer { margin-top:20px; }
+
+.image-height {
+  height: 200px
+}
+
+.form-width {
+  width: 350px;
+  margin: auto
+}
+
+.thead {
+  background: #337ab7;
+  color: #C1EAFF;
+}

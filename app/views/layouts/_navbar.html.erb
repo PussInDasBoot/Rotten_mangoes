@@ -1,0 +1,19 @@
+<nav class="navbar navbar-default">
+  <div class="container">
+  <ul>
+    <span class="navbar-right">
+    <% if current_user %>
+        <p class="navbar-text">Signed in as <%=current_user.full_name%></p>
+        <li class="btn btn-default navbar-btn"><%= link_to "Log out", session_path("current"), method: :delete %></li>
+      <%if current_user.admin %>
+        <li class="btn btn-default navbar-btn"><%= link_to "Admin", admin_users_path %></li>
+      <% end %>
+    <% else %>
+      <li class="btn btn-default navbar-btn"><%= link_to "Sign up", new_user_path %></li> |
+      <li class="btn btn-default navbar-btn"><%= link_to "Log in", new_session_path %></li>
+    <% end %>
+    </span>
+    <li class="btn btn-default navbar-btn"><%= link_to "Home", movies_path %></li>
+    </div>
+    </ul>
+</nav>
