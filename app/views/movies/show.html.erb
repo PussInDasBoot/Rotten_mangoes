@@ -1,11 +1,8 @@
 <h1><%= @movie.title %></h1>
 <figure>
-<%= image_tag @movie.poster_url if @movie.poster? %>
+<%= image_tag @movie.poster.resize.url if @movie.poster? %>
 </figure>
-<h3><%= @movie.director %> </h3>
-<h4><%= formatted_date(@movie.release_date)%> </h4>
-<h4>Length: <%= @movie.runtime_in_minutes %> minutes </h4>
-<p><%= @movie.description %></p>
+<%=render partial: "movie", locals: {movie: @movie} %>
 
 <%=link_to "Edit", edit_movie_path %><br>
 

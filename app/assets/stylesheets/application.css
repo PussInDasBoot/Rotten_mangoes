@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+body {
+  background: #fff;
+}
+
+.page-container {
+  background: #eee;
+  margin: 0 auto;
+  min-height: 22in;
+  width: 11in;
+}
+
+.placeholder {
+  backround: #ddd;
+  margin: 1em 0;
+  text-align: center;
+}
