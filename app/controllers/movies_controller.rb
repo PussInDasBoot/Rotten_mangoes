@@ -1,11 +1,9 @@
 class MoviesController < ApplicationController
   def index
     @movies = Movie.all
-    @movies = @movies.title_search(params[:title]) if params[:title]
-    @movies = @movies.director_search(params[:director]) if params[:director]
-    @movies = @movies.where("runtime_in_minutes < ?", 90) if params[:duration] == '2'
-    @movies = @movies.where("runtime_in_minutes >= ? AND runtime_in_minutes <= ?", 90, 120) if params[:duration] == '3'
-    @movies = @movies.where("runtime_in_minutes > ?", 120) if params[:duration] == '4'
+    @movies = @movies.title_search(params[:title]) unless params[:title].blank?
+    @movies = @movies.director_search(params[:director]) unless params[:director].blank?
+    @movies = @movies.duration_search(params[:minimum_duration], params[:maximum_duration]) unless (params[:minimum_duration].blank? || params[:maximum_duration].blank?)
   end
 
   def show

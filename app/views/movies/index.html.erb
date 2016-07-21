@@ -4,31 +4,31 @@
   </div>
 </div>
 <div class="row top-buffer">
-  <div class="col-sm-12">
+  <div class="form-group">
     <div class="form-inline text-center">
-      <div class="form-group">
-      <%= form_tag('/movies', method: "get") do %>
-        <%= label_tag(:title, "Search by Title:") %>
-        <%= text_field_tag(:title, nil, class: 'form-control') %>
+      <div class="col-sm-12">
+          <%= form_tag('/movies', method: "get") do %>
+            <%= label_tag(:title, "Search by Title:") %>
+            <%= text_field_tag(:title, nil, class: 'form-control') %>
+            <%= label_tag(:director, "Search by Director:") %>
+            <%= text_field_tag(:director, nil, class: 'form-control') %>
+            <%= label_tag(:minimum_duration, "Minimum duration:") %>
+            <%= text_field_tag(:minimum_duration, nil, class: 'form-control', id: 'duration-field') %>
+            <%= label_tag(:maximum_duration, "Maximum duration:") %>
+            <%= text_field_tag(:maximum_duration, nil, class: 'form-control', id: 'duration-field') %>
       </div>
-      <div class="form-group">
-        <%= label_tag(:director, "Search by Director:") %>
-        <%= text_field_tag(:director, nil, class: 'form-control') %>
-      </div>
-      <div class="form-group">
-        <%= label_tag(:duration, "Minimum:") %>
-        <%= select_tag(:duration, options_for_select([['', 1], ['Under 90 minutes', 2], ['Between 90 and 120 minutes', 3], ['Over 120 minutes', 4]]), class: 'form-control') %>
-      </div>
+      <div class="col-sm-2 col-sm-offset-5">
         <%= submit_tag "Search", name: nil, class: 'btn btn-primary'%>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
 <div class="row top-buffer">
   <div class="col-sm-12 text-center">
-    <div class="btn-group">
+    <!-- <div class="btn-group"> -->
     <%= link_to "Add a new movie", new_movie_path, class: 'btn btn-primary' %>
-    </div>
+    <!-- </div> -->
   </div>
 </div>
 <div class="row top-buffer">

@@ -12,6 +12,15 @@ class Movie < ApplicationRecord
 
   scope :title_search, ->(title) { where("title like ?", title) }
   scope :director_search, ->(director) { where("director like ?", director) }
+  scope :duration_search, ->(a=nil, b=nil) { 
+    if b.nil?
+      where("runtime_in_minutes > ?", a)
+    elsif a.nil?
+      where("runtime_in_minutes < ?", b)
+    else
+      where("runtime_in_minutes >= ? AND runtime_in_minutes <= ?", a, b)
+    end
+  }
 
   def review_average
     return 0 if reviews.count == 0
