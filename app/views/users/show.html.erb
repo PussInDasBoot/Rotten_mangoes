@@ -1,0 +1,20 @@
+<div class="form-width">
+  <h1><%=@user.full_name %></h1>
+
+  <table class="table top-buffer">
+    <thead class="thead">
+      <tr>
+        <td>Email</td>
+        <td>Review movie</td>
+        <td>Review</td>
+      </tr>
+    </thead>
+    <tr>
+      <td><%=@user.email %> </td>
+      <% @user.reviews.each do |review| %>
+      <td><%=link_to review.movie.title, movie_path(review.movie)%></td>
+      <td><%= review.text %> </td>
+      <% end %>
+    </tr>
+  </table>
+</div>
