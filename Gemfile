@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'bootstrap-sass'
+gem 'bootstrap_form'
 gem 'kaminari'
 gem 'carrierwave'
 gem 'mini_magick'

@@ -39,7 +39,13 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (7.0.0)
+    autoprefixer-rails (6.3.7)
+      execjs
     bcrypt (3.1.11)
+    bootstrap-sass (3.3.6)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
+    bootstrap_form (2.4.0)
     builder (3.2.2)
     byebug (9.0.5)
     carrierwave (0.11.2)
@@ -169,6 +175,8 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
+  bootstrap-sass
+  bootstrap_form
   byebug
   carrierwave
   coffee-rails (~> 4.2)

@@ -1,41 +1,47 @@
-  <div class="row-3">
-    <div class="col-1">
-      <div class="placeholder">
-        <%= form_tag('/movies', method: "get") do %>
-          <%= label_tag(:title, "Search by Title:") %>
-          <%= text_field_tag(:title) %>
-          <%= label_tag(:director, "Search by Director:") %>
-          <%= text_field_tag(:director) %>
-          <%= label_tag(:duration, "Search by Duration:") %>
-          <%= select_tag(:duration, options_for_select([['', 1], ['Under 90 minutes', 2], ['Between 90 and 120 minutes', 3], ['Over 120 minutes', 4]])) %>
-          <%= submit_tag "Search", name: nil %>
-          <%= link_to "Add a new movie", new_movie_path %>
-        <% end %>
+<div class="row">
+  <div class="col-sm-12">
+    <h1 class="text-center">Rotten Mangoes</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="form-inline text-center">
+      <div class="form-group">
+      <%= form_tag('/movies', method: "get") do %>
+        <%= label_tag(:title, "Search by Title:") %>
+        <%= text_field_tag(:title, nil, class: 'form-control') %>
       </div>
-    </div>
-    <div class="col-2">
-      <div class="placeholder"><h1>Rotten Mangoes</h1></div>
-      <div class="row-2">
-        <div class="col-2">
-          <div class="row-2">
-            <div class="col-1">
-              <div class="placeholder">
-                <% @movies.each do |movie| %>
-                  <figure>
-                    <%= link_to image_tag(movie.poster.resize.url), movie_path(movie) %>
-                  </figure>
-                  <h2><%= movie.title %></h2>
-                  <%=render partial: "movie", locals: {movie: movie} %>
-                <% end %>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+        <%= label_tag(:director, "Search by Director:") %>
+        <%= text_field_tag(:director, nil, class: 'form-control') %>
+        <%= label_tag(:duration, "Search by Duration:") %>
+        <%= select_tag(:duration, options_for_select([['', 1], ['Under 90 minutes', 2], ['Between 90 and 120 minutes', 3], ['Over 120 minutes', 4]]), class: 'form-control') %>
+        <%= submit_tag "Search", name: nil, class: 'btn btn-primary'%>
+      <% end %>
     </div>
   </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <%= link_to "Add a new movie", new_movie_path %>
+  </div>
+</div>
+<div class="row">
+  <section class="text-center">
+    <% @movies.each_slice(2) do |slice| %>
+    <div class="col-sm-12">
+      <% slice.each do |movie| %>
+      <div class="col-sm-6">
+        <figure>
+        <%= link_to image_tag(movie.poster.resize.url, class: 'img-rounded'), movie_path(movie) %>
+        </figure>
+        <h2><%= movie.title %></h2>
+        <%=render partial: "movie", locals: {movie: movie} %>
+      </div>
+      <% end %>
+    </div>
+    <% end %>
+  </section>
+</div>
 
 
-
-
-
+      
