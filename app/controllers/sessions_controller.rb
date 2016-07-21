@@ -8,7 +8,8 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to movies_path, notice: "#{user.email} was logged in successfully"
+      flash[:notice] = "#{user.email} was logged in successfully"
+      redirect_to movies_path
     else
       flash.now[:alert] = "Log in failed..."
       render :new
