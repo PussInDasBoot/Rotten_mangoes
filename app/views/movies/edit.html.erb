@@ -1,5 +1,11 @@
-<h1>Edit <%=@movie.title%></h1>
+<div class="text-center">
+  <h1 class="text-center">Edit <%=@movie.title%></h1>
 
-<%= render 'form' %> 
+  <%= render 'form' %> 
 
-<%= link_to "Back to movie", movie_path(@movie)%>
+
+  <%= link_to "Delete", movie_path(@movie), method: :delete, :"data-confirm" => "You sure?", class: "btn btn-danger" %><br>
+
+
+  <%= link_to "Back to movie", movie_path(@movie), class: "btn btn-primary top-buffer"%>
+</div>
